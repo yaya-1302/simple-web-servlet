@@ -14,7 +14,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 @WebServlet(name = "homeServlet", value = "/home")
 public class HomeServlet extends HttpServlet {
     private static final List<Student> students = new ArrayList<>();
@@ -51,6 +50,11 @@ public class HomeServlet extends HttpServlet {
             passPercentages.put(department, passPercentage);
         }
 
+        // Ambil username dari session
+        String username = (String) request.getSession().getAttribute("username");
+
+        // Kirim data ke JSP
+        request.setAttribute("username", username);
         request.setAttribute("students", students);
         request.setAttribute("passPercentages", passPercentages);
         request.getRequestDispatcher("home.jsp").forward(request, response);
