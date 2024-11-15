@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "loginServlet", value="/login")
+@WebServlet(name = "loginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
     private static final String USER_ID = "admin";
     private static final String PASSWORD = "password";
@@ -19,6 +19,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         if (USER_ID.equals(userId) && PASSWORD.equals(password)) {
+            request.getSession().setAttribute("username", userId);
             response.sendRedirect("home");
         } else {
             response.sendRedirect("login.jsp?error=Invalid+credentials");

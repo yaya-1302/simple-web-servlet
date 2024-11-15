@@ -25,7 +25,7 @@
     <input type="text" id="userId" name="userId"><br><br>
     <label>Password:</label><br>
     <input type="password" id="password" name="password"><br><br>
-    <input type="submit" value="Login">
+    <button type="submit">Login</button>
 </form>
 </body>
 </html>
